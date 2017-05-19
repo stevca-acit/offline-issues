@@ -61,7 +61,7 @@ module.exports = function (token, options, cb) {
   }
 
   function theRequestLoop (repo, cb) {
-    var query = '/issues?state=' + repo.state + '&page='
+    var query = '/issues?state=' + repo.state + '&q=closed:>2016-07-01' + '&page='
     var limit = '&per_page=100'
     var url = base + '/repos/' + repo.user + '/' + repo.name + query + pagenum + limit
     request(url, { json: true, headers: headers }, function (err, resp, body) {
